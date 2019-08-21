@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <style>
+    #car {
+      position: absolute;
+      cursor: pointer;
+    }
+
+    #wheel1{
+      position: absolute;
+      left: 92px;
+      top: 88px;
+    }
+
+    #wheel2{
+      position: absolute;
+      left: 198px;
+      top: 88px;
+    }
+  </style>
+</head>
+
+<body onload="draw();">
+ <div id="car" onclick="anim()">
+
+ 
+    <img id="car1" src="car.jpg">
+    <img id="wheel1" src="wheel.jpg" height="21px" width="21px">
+    <img id="wheel2" src="wheel.jpg" height="21px" width="21px">
+  </div>
+</body>
+<script>
+
+function anim(){
+  var elem = document.getElementById("car");
+  var elem1 = document.getElementById("wheel1");
+  var elem2 = document.getElementById("wheel2");
+  
+  var pos = 0;
+  var id = setInterval(frame, 10);
+
+  function frame() {
+ 
+    if (pos == 500) {
+      clearInterval(id); 
+    } else {
+      rotate1();
+      pos+=2;
+      elem.style.left = pos + "px";
+    }
+ 
+  }
+
+  function rotate1(){
+    elem1.style.transform = "rotate("+pos+"deg)";
+    elem2.style.transform = "rotate("+pos+"deg)";
+  }
+}
+</script>
+
+</html>
